@@ -53,6 +53,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        ItemDep = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +62,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setPreferredSize(new java.awt.Dimension(635, 576));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,25 +78,30 @@ public class IUPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(161, 161, 161)
+                .addGap(136, 136, 136)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(174, 174, 174))
+                .addGap(103, 103, 103))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(79, 79, 79)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                 .addGap(159, 159, 159))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(237, 237, 237))
+                .addGap(233, 233, 233)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
+
+        jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(300, 35));
 
         jMenu1.setBackground(new java.awt.Color(102, 102, 102));
         jMenu1.setText("Cadastro");
@@ -219,6 +226,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem14);
 
+        jMenuItem15.setBackground(new java.awt.Color(153, 153, 153));
         jMenuItem15.setText("Funcionario específico(nome)");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +234,14 @@ public class IUPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem15);
+
+        ItemDep.setText("Departamento específico");
+        ItemDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemDepActionPerformed(evt);
+            }
+        });
+        jMenu3.add(ItemDep);
 
         jMenuBar1.add(jMenu3);
         jMenuBar1.add(jMenu4);
@@ -264,7 +280,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         IURelatorio relatorio = new IURelatorio(this, false);
         Controlador control = new Controlador();
-        relatorio.exibir("Relatório da Universidade ", "Universidade", control.resumoDepartamentos());
+        relatorio.exibir("Relatório da Universidade ", "Universidade", control.relatorioGeral());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -333,6 +349,12 @@ public class IUPrincipal extends javax.swing.JFrame {
         relatorio.setVisible(true);                               
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void ItemDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepActionPerformed
+        // TODO add your handling code here:
+        IUBuscaDepartamento busca = new IUBuscaDepartamento(this,false);
+        busca.setVisible(true);
+    }//GEN-LAST:event_ItemDepActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -364,10 +386,9 @@ public class IUPrincipal extends javax.swing.JFrame {
         Controlador control = new Controlador();
         control.addDepartamento("123", "Física");
 
-        control.addDocenteEfetivo("1", "Carlos", 1000, "Mestrado", "D1", "Exatas", "123");
-        control.addTecnico("Assessor", "3", "Joana", 1000, "T1", "123");
-        control.addDocenteSub("2", "Maria", 1000, "Titular", "S1", 12, "123");
-        System.out.println(control.resumoDepartamentos());
+        control.addDocenteEfetivo("1", "Carlos", 50, "Mestrado", "D1", "Exatas", "123");
+        control.addTecnico("Assessor", "3", "Joana", 50, "T1", "123");
+        control.addDocenteSub("2", "Maria", 50, "Titular", "S1", 12, "123");
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -377,6 +398,7 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ItemDep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

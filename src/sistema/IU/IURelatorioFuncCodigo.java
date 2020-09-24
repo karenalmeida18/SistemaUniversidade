@@ -21,6 +21,7 @@ public class IURelatorioFuncCodigo extends javax.swing.JDialog {
     public IURelatorioFuncCodigo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        TextArea.setEditable(false);
     }
 
     /**

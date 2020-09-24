@@ -346,7 +346,9 @@ public class IUCadastroSubstituto extends javax.swing.JDialog {
     private void TextCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextCodigoFocusLost
         // TODO add your handling code here:
        String codigo = TextCodigo.getText();
-       Substituto e = (Substituto) control.buscaFuncionario(codigo);
+       Funcionario f = control.buscaFuncionario(codigo);
+       Substituto e = null;
+       if(f instanceof Substituto) e = (Substituto) f;
        if(e!=null){
             TextNome.setText(e.getNome());
             TextSalario.setText(Double.toString(e.calcularSalario()));
@@ -377,7 +379,7 @@ public class IUCadastroSubstituto extends javax.swing.JDialog {
     }//GEN-LAST:event_CampoBuscaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           Departamento d = control.buscaDepartamentoD(CampoBusca.getText());
+        Departamento d = control.buscaDepartamentoD(CampoBusca.getText());
         if(d!=null){
              ContainerCadastro.setVisible(true);
              ContainerCodigo.setVisible(false);

@@ -83,7 +83,7 @@ public class IURelatorioFuncEspecífico extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Buscar funcionário por código ");
+        jLabel3.setText("Buscar funcionário pro gasto");
         jLabel3.setAlignmentX(0.5F);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -170,10 +170,11 @@ public class IURelatorioFuncEspecífico extends javax.swing.JDialog {
         
         String d  = control.funcionariosFaixaSalario(ini, fim);
         
-        if (d != "") {
-            textRelatorio.setText(d);
-        }else{
+        if ("".equals(d)) {
+            textRelatorio.setText("");
             JOptionPane.showMessageDialog(null, "Faixa de gasto não encontrada nos departamentos");
+        }else{
+            textRelatorio.setText(d);
         }
     }//GEN-LAST:event_buttonExibirActionPerformed
 
@@ -233,18 +234,8 @@ public class IURelatorioFuncEspecífico extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textRelatorio;
     // End of variables declaration//GEN-END:variables

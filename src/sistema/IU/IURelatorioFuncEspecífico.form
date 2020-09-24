@@ -206,7 +206,7 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Buscar funcion&#xe1;rio por c&#xf3;digo "/>
+                <Property name="text" type="java.lang.String" value="Buscar funcion&#xe1;rio pro gasto"/>
                 <Property name="alignmentX" type="float" value="0.5"/>
               </Properties>
             </Component>

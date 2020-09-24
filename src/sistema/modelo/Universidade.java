@@ -27,7 +27,7 @@ public class Universidade {
     }
        
     public void addTecnico(String funçao, String codigo, String nome, double salario, String nivel, String CodigoDep) {
-        Departamento d = db.buscaDepartamento(CodigoDep);
+         Departamento d = db.buscaDepartamento(CodigoDep);
          d.addTecnico(funçao, codigo, nome, salario, nivel);
     }
     
@@ -45,8 +45,8 @@ public class Universidade {
         Departamento d = db.buscaDepartamento(codigo);
         if (d != null) {
             dados = "Nome: " + d.getNome() + "\n"
-                    + "Quantidade de funcionarios : " + d.qdtFuncionario() + "\n"
-                    + "Gasto total : " + d.gastoTotal();
+                    + "Quantidade de funcionarios : " + d.getFuncionarios() + "\n"
+                    + "Gasto total do departamento : " + d.gastoTotal();
 
         }
         return dados;
@@ -59,39 +59,45 @@ public class Universidade {
         }
         return null;
     }
-
+    
+    public Departamento[] getDepartamentos(){
+        return db.getDepartamentos();
+    }
+    
     public String resumoDepartamentos() {
         Departamento vetor[] = db.getDepartamentos();
         String dados = "";
         for (int i = 0; i < vetor.length; i++) {
             dados = dados
+                    +"\n\nDepartamento " + i
                     + "\nNome: " + vetor[i].getNome() + "\n"
-                    + "\nQuantidade de funcionarios : " + vetor[i].qdtFuncionario() + "\n"
-                    + "\nGasto total : " + vetor[i].gastoTotal();
+                    + "Quantidade de funcionarios : " + vetor[i].qdtFuncionario() + "\n"
+                    + "Gasto total : " + vetor[i].gastoTotal();
         }
         return dados;
     }
 
     public String infoGeral() {
         Departamento vetor[] = db.getDepartamentos();
-        String dados = "";
+        String dados = "\nGasto total universidade : " + db.gastoTotal() + ""
+                        + "\n\nDepartamentos: ";
         for (int i = 0; i < vetor.length; i++) {
             dados = dados
-                    + "Nome do departamento : " + vetor[i].getNome() + "\n"
-                    + "Funcionarios : " + vetor[i].getFuncionarios() + "\n"
-                    + "Gasto total : " + db.gastoTotal() +" \n";
+                    + "\n\nNome do departamento : " + vetor[i].getNome() + "\n"
+                    + "Funcionarios : " + vetor[i].getFuncionariosNome() + "\n"
+                    + "Gasto total departamento : " + vetor[i].gastoTotal();
         }
         return dados;
     }
 
-    public String departamentosFaixaGasto(double ini, double fin) {
+    public String departamentosFaixaGasto(double ini, double fim) {
         Departamento vetor[] = db.getDepartamentos();
         String dados = "";
         for (int i = 0; i < vetor.length; i++) {
             double gasto = vetor[i].gastoTotal();
-            if (ini <= gasto && gasto <= fin) {
+            if (ini <= gasto && gasto <= fim) {
                 dados = dados
-                        + "Nome: " + vetor[i].getNome() + "\n"
+                        + "\nNome: " + vetor[i].getNome() + "\n"
                         + "Quantidade de funcionarios : " + vetor[i].qdtFuncionario() + "\n"
                         + "Gasto total : " + vetor[i].gastoTotal();
             }
@@ -105,7 +111,8 @@ public class Universidade {
         for (int i = 0; i < vetor.length; i++) {
             double salario = vetor[i].getSalario();
             if (salario >= ini && salario <= fim) {
-                dados = dados + vetor[i].toString();
+                dados = dados + "\nNome : " + vetor[i].getNome()
+                               + ", Salario : " + vetor[i].getSalario();
             }
         }
         return dados;
@@ -128,7 +135,15 @@ public class Universidade {
         }
         return dados;
     }
-
+    
+    public Funcionario buscaFuncionario(String codigo) {
+        Funcionario f = db.buscaFuncionarioCodigo(codigo);
+        if (f != null) {
+            return f;
+        }
+        return null;
+    }
+    
     public String getFuncionarios() {
         Funcionario vetor[] = db.getFuncionarios();
         String dados = "";

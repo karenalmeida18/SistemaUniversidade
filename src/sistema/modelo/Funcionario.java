@@ -49,7 +49,7 @@ public abstract class Funcionario implements Cloneable {
     }
 
     public double getSalario() {
-        return salario;
+        return calcularSalario();
     }
 
     public void setSalario(double salario) {

@@ -21,6 +21,7 @@ public class IURelatorioFuncNome extends javax.swing.JDialog {
     public IURelatorioFuncNome(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        TextArea.setEditable(false);
     }
 
     /**
@@ -191,8 +192,8 @@ public class IURelatorioFuncNome extends javax.swing.JDialog {
         // TODO add your handling code here:
         Controlador control = new Controlador();
         String nome = TextNome.getText();
-        String f = control.buscaFuncionarioCod(nome);
-        if(f!=""){
+        String f = control.buscaFuncionarioNome(nome);
+        if(!"".equals(f)){
             TextArea.setText(f);
         }
         else {

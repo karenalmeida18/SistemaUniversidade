@@ -21,7 +21,6 @@ public class Departamento implements Cloneable {
     private static DataBase db;
     private Funcionario funcionarios[];
     private int cont;
-            
 
     public Departamento() {
         this.db = DataBase.getInstance();
@@ -39,7 +38,7 @@ public class Departamento implements Cloneable {
     }
 
     public void addTecnico(String funçao, String codigo, String nome, double salario, String nivel) {
-        Tecnico t = new Tecnico(funçao,codigo, nome, salario, nivel);
+        Tecnico t = new Tecnico(funçao, codigo, nome, salario, nivel);
         db.addFuncionario(t);
         funcionarios[cont] = t;
         cont++;
@@ -57,29 +56,14 @@ public class Departamento implements Cloneable {
         db.addFuncionario(e);
         funcionarios[cont] = e;
         cont++;
-  
+
     }
 
     public int qdtFuncionario() {
-        System.out.println(cont);
         return cont;
     }
-    
-    public Funcionario buscaFuncionario(String codigo){
-        Funcionario f = db.buscaFuncionarioCodigo(codigo);
-        if(f != null) return f;
-        return null;
-    }
-    public String exibirFuncionarioCod(String codigo) {
-        Funcionario f = db.buscaFuncionarioCodigo(codigo);
-        String dados = "";
-        if (f != null) {
-            dados = f.toString();
-        }
-        return dados;
-    }
 
-     public double gastoTotal() {
+    public double gastoTotal() {
         double soma = 0;
         for (int i = 0; i < cont; i++) {
             soma += funcionarios[i].calcularSalario();
@@ -89,11 +73,19 @@ public class Departamento implements Cloneable {
 
     public String getFuncionarios() {
         String dados = "";
-        for(int i=0; i<cont; i++){
+        for (int i = 0; i < cont; i++) {
             dados += funcionarios[i].toString();
         }
         return dados;
     }
+      public String getFuncionariosNome() {
+        String dados = "";
+        for (int i = 0; i < cont; i++) {
+            dados += "[" + funcionarios[i].getNome() +"], ";
+        }
+        return dados;
+    }
+
 
     public String getCodigo() {
         return codigo;

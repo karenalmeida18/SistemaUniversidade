@@ -22,6 +22,7 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
     public IURelatorioDepEspecífico(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        textRelatorio.setEditable(false);
     }
 
     /**
@@ -37,9 +38,9 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
         textRelatorio = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        TextIni = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         TextFim = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        TextIni = new javax.swing.JTextField();
         buttonExibir = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,6 +51,7 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
         textRelatorio.setBackground(new java.awt.Color(153, 153, 153));
         textRelatorio.setColumns(20);
         textRelatorio.setRows(5);
+        textRelatorio.setMaximumSize(new java.awt.Dimension(635, 576));
         jScrollPane1.setViewportView(textRelatorio);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -58,9 +60,13 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Faixa de fim : ");
 
+        TextFim.setBackground(new java.awt.Color(102, 102, 102));
+
         jLabel1.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Faixa de início : ");
+
+        TextIni.setBackground(new java.awt.Color(102, 102, 102));
 
         buttonExibir.setBackground(new java.awt.Color(51, 51, 51));
         buttonExibir.setText("Exibir");
@@ -76,7 +82,7 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Bitstream Vera Sans Mono", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Buscar funcionário por código ");
+        jLabel3.setText("Buscar departamento por gasto");
         jLabel3.setAlignmentX(0.5F);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -106,13 +112,13 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TextIni, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextFim, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addGap(21, 21, 21)
-                        .addComponent(TextFim, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextIni, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -124,12 +130,12 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TextIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonExibir))
                     .addComponent(jLabel2))
                 .addGap(32, 32, 32))
@@ -147,8 +153,7 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,10 +168,11 @@ public class IURelatorioDepEspecífico extends javax.swing.JDialog {
         
         String d  = control.departamentosFaixaGasto(ini, fim);
         
-        if (d != "") {
-            textRelatorio.setText(d);
-        }else{
+        if ("".equals(d)) {
+            textRelatorio.setText("");
             JOptionPane.showMessageDialog(null, "Faixa de gasto não encontrada nos departamentos");
+        }else{
+            textRelatorio.setText(d);
         }
     }//GEN-LAST:event_buttonExibirActionPerformed
 

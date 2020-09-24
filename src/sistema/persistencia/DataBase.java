@@ -54,7 +54,6 @@ public class DataBase {
         Departamento vetDepartamentos[] = new Departamento[contDepartamentos];
         for (int i = 0; i < contDepartamentos; i++) {
             vetDepartamentos[i] = departamentos[i].clone();
-            System.out.println("teste" + departamentos[i].qdtFuncionario());
         }
         return vetDepartamentos;
     }

@@ -358,7 +358,9 @@ public class IUCadastroEfetivo extends javax.swing.JDialog {
     private void TextCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextCodigoFocusLost
         // TODO add your handling code here:
         String codigo = TextCodigo.getText();
-        Efetivo e = (Efetivo) control.buscaFuncionario(codigo);
+        Efetivo e = null;
+        Funcionario f =  control.buscaFuncionario(codigo);
+        if(f instanceof Efetivo) e = (Efetivo) f;
         if(e!=null){
             TextNome.setText(e.getNome());
             TextSalario.setText(Double.toString(e.calcularSalario()));

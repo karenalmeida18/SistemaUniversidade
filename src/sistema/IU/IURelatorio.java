@@ -17,6 +17,7 @@ public class IURelatorio extends javax.swing.JDialog {
     public IURelatorio(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        textRelatorio.setEditable(false);
     }
     
     public void exibir(String barraTitulo, String titulo, String relatorio){
