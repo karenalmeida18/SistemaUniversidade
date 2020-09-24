@@ -63,7 +63,6 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
         TextCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Msg = new javax.swing.JLabel();
         CadastroCodigo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         CampoCodigo = new javax.swing.JTextField();
@@ -188,10 +187,6 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Nivel :");
 
-        Msg.setBackground(new java.awt.Color(255, 255, 255));
-        Msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Msg.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         javax.swing.GroupLayout CadastroContainerLayout = new javax.swing.GroupLayout(CadastroContainer);
         CadastroContainer.setLayout(CadastroContainerLayout);
         CadastroContainerLayout.setHorizontalGroup(
@@ -215,13 +210,8 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
                 .addGap(92, 92, 92))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroContainerLayout.createSequentialGroup()
                 .addContainerGap(72, Short.MAX_VALUE)
-                .addGroup(CadastroContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastroContainerLayout.createSequentialGroup()
-                        .addComponent(Msg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroContainerLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         CadastroContainerLayout.setVerticalGroup(
             CadastroContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,9 +237,7 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
                         .addGroup(CadastroContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ComboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))))
-                .addGap(18, 18, 18)
-                .addComponent(Msg, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addGap(41, 41, 41)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -418,7 +406,6 @@ public class IUCadastroTecnico extends javax.swing.JDialog {
     private javax.swing.JTextField CampoCodigo;
     private javax.swing.JComboBox<String> ComboFunçao;
     private javax.swing.JComboBox<String> ComboNivel;
-    private javax.swing.JLabel Msg;
     private javax.swing.JTextField TextCodigo;
     private javax.swing.JTextField TextNome;
     private javax.swing.JTextField TextSalario;

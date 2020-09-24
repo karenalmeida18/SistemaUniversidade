@@ -35,6 +35,7 @@ public class IUCadastroEfetivo extends javax.swing.JDialog {
         ComboArea.addItem(Constantes.Humanas);
         ComboArea.addItem(Constantes.Saude);
         
+        ComboTitulacao.removeAllItems();
         ComboTitulacao.addItem(Constantes.TitucaoDout);
         ComboTitulacao.addItem(Constantes.TitucaoGrad);
         ComboTitulacao.addItem(Constantes.TitucaoLivreD);

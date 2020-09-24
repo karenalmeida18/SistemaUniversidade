@@ -31,7 +31,8 @@ public class IUCadastroSubstituto extends javax.swing.JDialog {
         ComboCargaH.removeAllItems();
         ComboCargaH.addItem(Constantes.meioPeriodo);
         ComboCargaH.addItem(Constantes.integral);
-        
+       
+        ComboTitulacao.removeAllItems();
         ComboTitulacao.addItem(Constantes.TitucaoDout);
         ComboTitulacao.addItem(Constantes.TitucaoGrad);
         ComboTitulacao.addItem(Constantes.TitucaoLivreD);
